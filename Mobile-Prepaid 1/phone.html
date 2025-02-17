@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobilePrepaid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Prepaid</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#zen">Recharge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-light search-btn">
+                        <img src="./images/search.png" height="25px">
+                    </button>
+                    <a href="phone.html" class="nav-link text-danger">
+                        <img src="./images/logo2.png" height="30px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN SECTION -->
+    <section class="container-fluid d-flex justify-content-center align-items-center main-section">
+        <div class="content-wrapper shadow-lg p-4">
+            <div class="row">
+                <!-- Left Side (Image) -->
+                <div class="col-md-6 left-panel">
+                    <img src="./images/side.webp" class="img-fluid rounded-left">
+                </div>
+
+                <!-- Right Side (Form) -->
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="card p-4 shadow-sm">
+                        <h2 class="text-center">Phone Number</h2>
+                        <form id="phoneForm">
+                            <div class="input-group my-3">
+                                <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                                <button class="btn btn-danger" type="submit">Generate OTP</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("phoneForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const phone = document.getElementById("phone").value;
+            if (!phone.match(/^\d{10}$/)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+            const otp = Math.floor(1000 + Math.random() * 9000);
+            localStorage.setItem("otp", otp);
+            localStorage.setItem("phone", phone);
+            alert("OTP Sent: " + otp);
+            window.location.href = "otp.html";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Prepaid Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Profile.css">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" height="40"> <!-- Replace with your logo -->
+            </a>
+            
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Prepaid.html">Prepaid</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#zen">Recharge</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#">Utility Bills</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+
+                <!-- Right Section -->
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-light search-btn">
+                        <img src="./images/search.png" height="25px">
+                            </button>
+                                <a href="phone.html" class="nav-link text-danger">
+                                    <img src="./images/logo2.png" height="30px">
+                                </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Side - Fixed User Info -->
+            <div class="col-md-3 bg-light p-3" id="user-info">
+                <h4>User Profile</h4>
+                <p><strong>Number:</strong> <span id="mobile-number"></span></p>
+                <p><strong>Account Type:</strong> <span id="account-type"></span></p>
+                <p><strong>Status:</strong> <span id="status"></span></p>
+                <button class="btn btn-primary">Edit Profile</button>
+            </div>
+            
+            <!-- Right Side - Scrollable Content -->
+            <div class="col-md-9 overflow-auto p-3" id="content">
+                <h4>Activated Plans</h4>
+                <ul id="plans-list" class="list-group mb-3"></ul>
+                
+                <h4>User History</h4>
+                <ul id="history-list" class="list-group mb-3"></ul>
+                
+                <h4>Transactions</h4>
+                <ul id="transactions-list" class="list-group mb-3"></ul>
+                
+                <h4>Recharge & Payment</h4>
+                <button class="btn btn-success">Recharge Now</button>
+            </div>
+        </div>
+    </div>
+    <script src="./Profile.js"></script>
+</body>
+</html>

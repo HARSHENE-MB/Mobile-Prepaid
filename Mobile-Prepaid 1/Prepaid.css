@@ -1,0 +1,123 @@
+/* ✅ Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ✅ Global Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-right: 15px;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.navbar .nav-link:hover {
+    color: red;
+}
+
+.navbar .text-danger {
+    font-weight: bold;
+    
+}
+
+
+/* ✅ Navbar */
+.navbar {
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-right: 15px;
+}
+
+.navbar .nav-link:hover {
+    color: red;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* ✅ Category Buttons */
+.category-container {
+    margin: 20px 0;
+}
+
+.category-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background: #d50000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category-btn:hover {
+    background: #ff0000;
+}
+
+/* ✅ Plans Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ✅ Card Styles */
+.card {
+    width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+.card h3 {
+    color: #d50000;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+   
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
