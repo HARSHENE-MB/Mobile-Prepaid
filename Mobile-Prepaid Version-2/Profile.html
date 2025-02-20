@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Prepaid Profile</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <style>
+        .poppins-thin {
+            font-family: "Poppins", serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+        .poppins-extralight {
+            font-family: "Poppins", serif;
+            font-weight: 200;
+            font-style: normal;
+        }
+        .poppins-light {
+            font-family: "Poppins", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+        .poppins-regular {
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .poppins-medium {
+            font-family: "Poppins", serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .poppins-semibold {
+            font-family: "Poppins", serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+        .poppins-bold {
+            font-family: "Poppins", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .poppins-extrabold {
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+        .poppins-black {
+            font-family: "Poppins", serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        /* Navbar */
+        .navbar-nav .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            margin-right: 15px;
+        }
+        .navbar .nav-link:hover {
+            color: red;
+        }
+        .navbar .text-danger {
+            font-weight: bold;
+        }
+
+        /* Sidebar and Content Styling */
+        body {
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            margin-right: 15px;
+        }
+
+        .navbar .nav-link:hover {
+            color: red;
+        }
+
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            list-style: none;
+            min-width: 120px;
+        }
+
+        .dropdown-menu a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 5px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+            color: red;
+        }
+
+        .container {
+            max-width: 1000px;
+        }
+
+        .sidebar {
+            height: 50vh;
+            background-color: #fff;
+            padding: 15px;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 8px;
+            color: black;
+            font-size: 13px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+            color: red;
+        }
+
+        .content {
+            min-height: 80vh;
+            font-size: 13px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-control, .form-select {
+            font-size: 13px;
+            padding: 6px;
+        }
+
+        .btn-danger {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .faq-container {
+            margin-top: 10px;
+        }
+
+        .faq-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .ask-form input, .ask-form textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .ask-form button {
+            padding: 8px 12px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .download-button {
+    display: inline-block;
+    background-color: #d9534f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+        .button:hover {
+            background-color: #d9534f;
+        }
+        .download-button:hover {
+             background-color: #d9534f;
+           }
+
+        /* Navbar Styling */
+        .navbar {
+            padding: 5px 0;
+        }
+
+        .navbar-brand img {
+            height: 35px;
+        }
+
+        .data-usage-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+}
+
+.data-left {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d9534f; /* Your required color */
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    margin: 8px 0;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #d9534f;
+    border-radius: 5px;
+}
+
+.renew-text {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: right;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.check-usage {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+.add-data {
+    background: white;
+    color: #d9534f;
+    padding: 10px 15px;
+    border: 2px solid #d9534f;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+.plan-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+}
+
+.plan-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.expiry-label {
+    background: #f5a623; /* Orange */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    list-style: none;
+}
+.dropdown-menu.show {
+    display: block;
+}
+
+
+.recharge-btn {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+.view-plan-btn {
+    background: white;
+    color: #d9534f;
+    padding: 10px 15px;
+    border: 2px solid #d9534f;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    flex: 1;
+}
+
+
+.current-plan-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    max-width: 250px; /* Square layout */
+    text-align: center;
+    position: relative;
+}
+
+.current-plan-card h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.current-plan-card .plan-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.current-plan-card .expiry-info {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.current-plan-card .expiry-badge {
+    background: #f39c12;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.current-plan-card .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.current-plan-card .btn {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.current-plan-card .btn-primary {
+    background: #d9534f;
+    color: white;
+    border: none;
+}
+
+.current-plan-card .btn-outline {
+    background: white;
+    color: #d9534f;
+    border: 2px solid #d9534f;
+}
+
+          
+.current-plan-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    max-width: 300px; /* Square layout */
+    text-align: left;
+    position: relative;
+}
+
+.current-plan-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.current-plan-card p {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.current-plan-card .expiry-badge {
+    background: #f39c12;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.current-plan-card .btn-primary {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 15px;
+}
+    /* Style for the current plan card */
+.current-plan-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    position: relative;
+}
+
+/* Expiry Badge */
+.expiry-badge {
+    display: inline-block;
+    background: #d9534f; /* Red background */
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Plan details */
+.current-plan-card h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.current-plan-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Add Plan button */
+.btn-primary {
+    background: #d9534f; /* Same red as the badge */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-primary:hover {
+    background: #c9302c;
+}
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .sidebar {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="" alt="Logo" height="40">
+        </a>
+        
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="./Prepaid.html">Prepaid</a></li>
+                <li class="nav-item"><a class="nav-link" href="./index.html#zex">Recharge</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                
+            </ul>
+
+            <!-- Right Section -->
+            <div class="d-flex align-items-center">
+                <button class="btn btn-light search-btn">
+                    <img src="./images/search.png" height="25px">
+                </button>
+
+                <div id="auth-section">
+                    <!-- Login Button (Only visible if NOT logged in) -->
+                    <button id="login-btn" class="btn btn-danger">Login</button>
+                
+                    <!-- Profile Icon & Dropdown (Only visible if logged in) -->
+                    <div id="profile-dropdown" class="profile-dropdown" style="display: none;">
+                        <img src="./images/logo2.png" height="30px" onclick="toggleDropdown()">
+                        <ul id="dropdown-menu" class="dropdown-menu">
+                            <li><a href="#" id="logout-btn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-md-3 sidebar">
+            <h5>Menu</h5>
+            <a onclick="loadContent('profile')">Profile</a>
+            <a onclick="loadContent('transactions')">Transactions</a>
+            <a onclick="loadContent('recharge')">Recharge</a>
+            <a onclick="loadContent('settings')">Settings</a>
+            <a onclick="loadContent('support')">Support</a>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-md-9">
+            <!-- Content Section (User Profile) -->
+            <div id="content">
+                <div class="profile-card">
+                    <h5>User Profile</h5>
+                    <p><strong>Number:</strong> 9876543210</p>
+                    <p><strong>Account Type:</strong> Prepaid</p>
+                    <p><strong>Status:</strong> Active</p>
+                    <!-- <button class="btn btn-danger edit-btn" onclick="loadContent('settings')">Edit Profile</button> -->
+                </div>
+
+                <div class="profile-card">
+                    <h5>Data Usage</h5>
+                    <p><strong>Used:</strong> 1.99 GB</p>
+                    <p><strong>Total:</strong> 2 GB</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 99%;"></div>
+                    </div>
+                    <p class="text-muted">Renews in 11 hours</p>
+                </div>
+
+                <div class="profile-card">
+                    <h5>Current Plan</h5>
+                    <p><strong>Plan:</strong> 1GB/day - 28 days</p>
+                    <p><strong>Calls:</strong> Unlimited - 56 min</p>
+                    <button class="btn btn-danger edit-btn" onclick="window.location.href='./Prepaid.html'">Add Plan</button>
+                </div>
+            </div>
+
+            
+<!-- footer -->
+<footer class="footer bg-dark text-white text-center py-4">
+    <div class="container">
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+        <nav>
+            <a href="#" class="text-white mx-2">Privacy Policy</a> |
+            <a href="#" class="text-white mx-2">Terms of Service</a> |
+            <a href="#" class="text-white mx-2">Contact</a>
+        </nav>
+        <div class="mt-3">
+            <a href="#" class="text-white mx-2">Facebook</a>
+            <a href="#" class="text-white mx-2">Twitter</a>
+            <a href="#" class="text-white mx-2">Instagram</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    let loggedIn = localStorage.getItem("loggedIn");
+
+    // Strict Redirect Logic
+    if (!loggedIn && window.location.pathname.includes("index.html")) {
+        window.location.href = "phone.html";
+    } else if (loggedIn && window.location.pathname.includes("phone.html")) {
+        window.location.href = "index.html";
+    }
+
+    //  Update UI on page load
+    updateAuthUI();
+
+    //  Attach login event
+    let loginBtn = document.getElementById("login-btn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function () {
+            localStorage.setItem("loggedIn", "true");
+            updateAuthUI();
+            window.location.href = "index.html"; // Redirect to index.html after login
+        });
+    }
+
+    // Attach logout event
+    let logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", logout);
+    }
+});
+
+// Improved Logout Function
+function logout() {
+    console.log("Logging out...");  // Debugging log
+    localStorage.clear(); // Clear Local Storage
+    sessionStorage.clear(); // Clear Session Storage
+
+    // Delete all cookies
+    document.cookie.split(";").forEach((c) => {  
+        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/");
+    });
+
+    updateAuthUI(); // Update UI
+
+    //  Redirect to `phone.html`
+    setTimeout(() => {
+        window.location.href = "phone.html"; 
+    }, 500); // Small delay to ensure UI updates
+}
+
+//  Update UI Based on Login State
+function updateAuthUI() {
+    let loggedIn = localStorage.getItem("loggedIn");
+    let loginBtn = document.getElementById("login-btn");
+    let profileDropdown = document.getElementById("profile-dropdown");
+
+    if (loggedIn) {
+        if (loginBtn) loginBtn.style.display = "none"; // Hide login button
+        if (profileDropdown) profileDropdown.style.display = "inline-block"; // Show profile icon
+    } else {
+        if (loginBtn) loginBtn.style.display = "block"; // Show login button
+        if (profileDropdown) profileDropdown.style.display = "none"; // Hide profile icon
+    }
+}
+
+//  Toggle Dropdown ONLY IF Logged In
+function toggleDropdown() {
+    let loggedIn = localStorage.getItem("loggedIn");
+
+    if (loggedIn) {
+        let dropdown = document.getElementById("dropdown-menu");
+        dropdown.classList.toggle("show");
+    } else {
+        window.location.href = "phone.html"; // Redirect to login page
+    }
+}
+
+//  Ensure login button works
+document.getElementById("login-btn")?.addEventListener("click", function () {
+    localStorage.setItem("loggedIn", "true");
+    updateAuthUI();
+});
+
+window.onload = updateAuthUI;
+
+
+
+
+
+    function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.menu div').forEach(el => el.classList.remove('active'));
+            document.getElementById(sectionId + 'Tab').classList.add('active');
+        }
+
+        function downloadInvoice() {
+            const doc = new jsPDF();
+            doc.text("Invoice for Mobile Recharge", 20, 20);
+            doc.text("Name: John Doe", 20, 30);
+            doc.text("Amount: $10", 20, 40);
+            doc.text("Date: 18 Feb 2025", 20, 50);
+            doc.save("Invoice.pdf");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+    // Select the expiry badge element
+    let expiryBadge = document.getElementById("expiry-badge");
+    
+    // Update it to show "EXPIRING IN 3 DAYS"
+    if (expiryBadge) {
+        expiryBadge.textContent = "EXPIRING IN 3 DAYS";
+    }
+});
+
+
+
+// Function to simulate downloading the invoice
+function downloadInvoice() {
+    alert("Your invoice is being downloaded...");
+    
+}
+
+
+
+
+function updateExpiryLabel(expiryDateStr) {
+    let expiryDate = new Date(expiryDateStr);
+    let today = new Date();
+    let timeDiff = expiryDate - today;
+    let daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+    let expiryLabel = document.getElementById("expiry-days");
+
+    if (daysLeft <= 3) {
+        expiryLabel.textContent = daysLeft;
+    }
+}
+
+// Call the function with expiry date
+updateExpiryLabel("2025-02-15");
+
+document.querySelector(".btn-primary").addEventListener("click", function() {
+    window.location.href = "Prepaid.html";
+});
+
+
+    function loadContent(section) {
+        let content = document.getElementById("content");
+        content.style.opacity = "0"; 
+        setTimeout(() => {
+            if (section === "profile") {
+                content.innerHTML = `
+                    <div class="profile-card">
+                        <h5>User Profile</h5>
+                        <p><strong>Name:</strong> Harshene</p>
+                        <p><strong>Number:</strong> 9876543210</p>
+                        <p><strong>Address:</strong> 123 Street, City, Country</p>
+                    </div>
+
+                    <div class="profile-card">
+                        <h5>Data Usage</h5>
+                        <p><strong>Used:</strong> 1.99 GB</p>
+                        <p><strong>Total:</strong> 2 GB</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99%;"></div>
+                        </div>
+                        <p class="text-muted">Renews in 11 hours</p>
+                    </div>
+
+                       <div class="current-plan-card">
+    <span class="expiry-badge">EXPIRING IN 3 DAYS</span> 
+
+    <h5>Current Plan</h5>
+    <p><strong>Plan:</strong> 1GB/day - 28 days</p>
+    <p><strong>Calls:</strong> Unlimited - 56 min</p>
+
+    <!-- Add Plan Button Navigates to prepaid.html -->
+    <button class="btn-primary" onclick="window.location.href='prepaid.html'">Add Plan</button>
+</div>
+
+                `;
+            } else if (section === "settings") {
+                content.innerHTML = `
+                    <div class="profile-card">
+                        <h5>Profile Management</h5>
+                        <form>
+                            <div class="mb-2">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control" value="John Doe" disabled>
+                            </div>
+                            <div class="mb-2">
+                                <label for="number" class="form-label">Mobile Number</label>
+                                <input type="text" id="number" class="form-control" value="9876543210" disabled>
+                            </div>
+                            <div class="mb-2">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea id="address" class="form-control" rows="2" disabled>123 Street, City, Country</textarea>
+                            </div>
+                            <div class="mb-2">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-2">
+                                <label for="alt-number" class="form-label">Alternate Contact Number</label>
+                                <input type="text" id="alt-number" class="form-control" placeholder="Enter alternate number">
+                            </div>
+                            <div class="mb-2">
+                                <label for="language" class="form-label">Preferred Communication Language</label>
+                                <select id="language" class="form-select">
+                                    <option value="english">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="spanish">Tamil</option>
+                                    <option value="french">Telugu</option>
+                                    <option value="german">kanada</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-danger w-100">Save Changes</button>
+                        </form>
+                    </div>
+                `;
+            } else if (section === "transactions") {
+    content.innerHTML = `
+       <div class="profile-card plan-card">
+    <h5>Plan</h5>
+    <div class="plan-details">
+        <span class="price">₹299</span>
+        <span class="expiry-label">EXPIRING IN <span id="expiry-days">3</span> DAYS</span>
+    </div>
+    <p>Expires on <strong id="expiry-date">21st Feb, 2025</strong></p>
+    <div class="button-container">
+        <button class="recharge-btn">Recharge</button>
+        <button class="view-plan-btn">View plan</button>
+    </div>
+</div>
+
+</div>
+
+        <div class="profile-card">
+            <h5>Invoice</h5>
+            <div class="invoice-container" style="display: none;">
+                <h6>Invoice Details</h6>
+                <p>Invoice Number: #1234567890</p>
+                <p>Date: 18th February 2025</p>
+                <p>Total: $50.00</p>
+                <button id="download-btn" class="download-button" onclick="downloadInvoice()">Download PDF</button>
+            </div>
+            <button class="download-button" onclick="downloadInvoice()">Download Invoice</button>
+        </div>
+    `;
+
+    }else if (section === "recharge") {
+    content.innerHTML = `
+        <div class="profile-card">
+            <h5>Recharge History</h5>
+            <ul>
+                <li>01 Feb 2024 - ₹500 - Successful</li>
+                <li>15 Jan 2024 - ₹300 - Successful</li>
+                <li>05 Jan 2024 - ₹200 - Failed</li>
+                <li>20 Dec 2023 - ₹400 - Successful</li>
+                <li>10 Dec 2023 - ₹250 - Successful</li>
+            </ul>
+        </div>
+        <div class="profile-card">
+            <h5>Payment Details</h5>
+            <p>Card: **** **** **** 1234</p>
+            <p>Expiry: 08/26</p>
+            <p>Payment Method: Credit Card</p>
+            <p>Last Transaction: ₹500 on 01 Feb 2024</p>
+        </div>
+    `;
+}
+ else if (section === "support") {
+                content.innerHTML = `
+                    <div class="faq-container">
+                        <h5>Frequently Asked Questions</h5>
+                        <div class="faq-box">
+                            <div class="faq-question">1. How can I check my balance?</div>
+                            <div class="faq-answer">You can check your balance by dialing *123# or using the mobile app.</div>
+                        </div>
+                        <div class="faq-box">
+                            <div class="faq-question">2. How do I recharge my prepaid number?</div>
+                            <div class="faq-answer">You can recharge using online banking, UPI apps, retailer shops, or by dialing *123*Recharge Code#.</div>
+                        </div>
+                        <div class="faq-box">
+                            <div class="faq-question">3. How can I check my data usage?</div>
+                            <div class="faq-answer">To check data usage, dial *121# or visit the operator’s website or mobile app.</div>
+                        </div>
+
+                        <h5>Ask a Question</h5>
+                        <form class="ask-form">
+                            <input type="text" id="question" placeholder="Enter your question here..." required>
+                            <textarea id="questionDetail" rows="3" placeholder="Provide more details..." required></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                `;
+            }
+            
+            content.style.opacity = "1"; 
+        }, 300); 
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

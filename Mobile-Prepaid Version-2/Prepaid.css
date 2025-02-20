@@ -1,0 +1,264 @@
+/* ✅ Poppins Font Styles */
+.poppins-thin { font-family: "Poppins", sans-serif; font-weight: 100; font-style: normal; }
+.poppins-extralight { font-family: "Poppins", sans-serif; font-weight: 200; font-style: normal; }
+.poppins-light { font-family: "Poppins", sans-serif; font-weight: 300; font-style: normal; }
+.poppins-regular { font-family: "Poppins", sans-serif; font-weight: 400; font-style: normal; }
+.poppins-medium { font-family: "Poppins", sans-serif; font-weight: 500; font-style: normal; }
+.poppins-semibold { font-family: "Poppins", sans-serif; font-weight: 600; font-style: normal; }
+.poppins-bold { font-family: "Poppins", sans-serif; font-weight: 700; font-style: normal; }
+.poppins-extrabold { font-family: "Poppins", sans-serif; font-weight: 800; font-style: normal; }
+.poppins-black { font-family: "Poppins", sans-serif; font-weight: 900; font-style: normal; }
+
+/* ✅ Navbar Styles */
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-right: 15px;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.navbar .nav-link:hover {
+    color: red;
+}
+
+.navbar .text-danger {
+    font-weight: bold;
+}
+
+/* ✅ General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ✅ Navbar Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Search Bar */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+#search-bar {
+    width: 280px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+    border-color: #d50000;
+    box-shadow: 0px 0px 6px rgba(213, 0, 0, 0.3);
+}
+
+/* ✅ Main Layout */
+.main-container {
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    gap: 20px;
+}
+
+/* ✅ Sidebar */
+.sidebar {
+    width: 140px;
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+    font-size: 13px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background: white;
+    color: black;
+    text-align: left;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+    background: #d50000;
+    color: white;
+}
+
+/* ✅ Plans Section */
+.plans-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    align-items: stretch;
+}
+
+/* ✅ Plan Cards */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+    position: relative;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+/* ✅ Bestseller Card Styling */
+.card.bestseller {
+    border: 3px solid #ff0000;
+    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.5);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card.bestseller:hover {
+    box-shadow: 0px 4px 20px rgba(255, 0, 0, 0.7);
+}
+
+/* ✅ Bestseller Badge */
+.bestseller-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #464544;
+    color: rgb(255, 252, 252);
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(217, 228, 104, 0.2);
+}
+
+/* ✅ Highlight Selected Plan */
+.highlight {
+    background-color: rgb(57, 57, 56);
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* ✅ Apply Red Outline on Hover */
+.card:hover {
+    border: 2px solid #d50000;
+    box-shadow: 0px 4px 12px rgba(213, 0, 0, 0.3);
+}
+
+/* ✅ Apply Red Outline on Click */
+.card:active,
+.card:focus-within {
+    border: 2px solid #d50000;
+    box-shadow: 0px 4px 12px rgba(213, 0, 0, 0.4);
+}
+
+.card h3 {
+    color: #d50000;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d50000;
+}
+
+.card p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+/* ✅ Fix: Remove Orange Highlight From First Card */
+.highlight {
+    border: 2px solid #d50000 !important;
+    background-color: white !important;
+}
+
+/* ✅ Recharge Button */
+.btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    background: #d50000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+    margin-top: auto;
+    align-self: center;
+}
+
+.btn:hover {
+    background: #ff0000;
+    transform: scale(1.05);
+}
+
+/* ✅ Recharge Button - Centered */
+.recharge-btn {
+    display: block;
+    width: 120px;
+    margin: 10px auto 0;
+    padding: 8px;
+    font-size: 14px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recharge-btn:hover {
+    background-color: darkred;
+}
+
+/* ✅ Navbar Hover Effect */
+.d-flex:hover {
+    color: #d50000;
+}
+
+/* ✅ Responsive Fix */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+    .plans-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
